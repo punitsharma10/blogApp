@@ -1,12 +1,36 @@
 const express=require('express')
 const app=express();
+const mongoose=require('mongoose');
+const dotenv=require('dotenv');
+
+
+dotenv.config({path:'./config.env'});
+
+const DB=process.env.DATABASE;
+const PORT=process.env.PORT;
+
+mongoose.connect(DB,{
+    // useNewUrlParser:true,
+    // useUnifiedTopology:true
+}).then(()=>{
+    console.log('connected to mongodb');
+}).catch((err)=>{
+    console.log('error');
+});
+
+
+const middleware=(req,res,next)=>{
+    console.log("middleware");
+    next();
+}
 
 app.get('/',(req,res)=>{
     res.send(`helloWorld`)
 })
 
-app.get('/about',(req,res)=>{
-    res.send(`helloWorld`)
+app.get('/about',middleware,(req,res)=>{
+    console.log(`about`);
+    res.send(`helloWorldabout`)
 })
 
 app.get('/contact',(req,res)=>{
@@ -21,13 +45,12 @@ app.get('/signup',(req,res)=>{
     res.send(`signup`)
 })
 
-
-app.get('*', (req, res) => {
+app.get('*',(req,res)=>{
     res.send('Not a valid route');
 });
 
-console.log('heyyyyy');
+// console.log('heyyyyy');
 
-app.listen(8080,()=>{
-    console.log(`server running on port 8080`);
+app.listen(PORT,()=>{
+    console.log(`server running on port ${PORT}`);
 })
