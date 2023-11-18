@@ -1,6 +1,8 @@
 const express=require('express');
 const router=express.Router();
 const User=require("../model/userSchema");
+const bcrypt=require('bcrypt');
+const jwt=require('jsonwebtoken');
 
 router.get('/',(req,res)=>{
     res.send(`helloWorldfrom server`)
@@ -45,15 +47,65 @@ router.post('/register',async (req,res)=>{
         const userExist=await User.findOne({email:email});
         if(userExist)
         {
-            return res.status(422).json({error:"user already exists"});
+            return res.status(422).json({error:"email already exists"});
         }
+        else if(password!=cpassword)
+        {
+            return res.status(422).json({error:"password not match"});
+        }
+        else{
+            const user=new User({name,email,phone,work,password,cpassword});
 
-        const user=new User({name,email,phone,work,password,cpassword});
-        await user.save();
-        res.status(201).json({message:"user registered"});   
+            await user.save();
+    
+            res.status(201).json({message:"user registered"});
+        }   
     }catch(err){
         console.log(err)
     }
 });
+
+
+
+                      // login rout
+
+router.post('/signin',async (req,res)=>{
+    try {
+        const{email,password}=req.body;
+        if(!email || !password)
+        {
+            return res.json({status:400,message:"please provide all details"}) 
+        }
+
+        const userLogin=await User.findOne({email:email});
+
+        if (userLogin) {
+            const isMatch=await bcrypt.compare(password,userLogin.password);
+
+            const token= await userLogin.generateAuthToken();
+            console.log(token);
+
+            response.cookie("jwttoken",token,{
+                expires:new Date(Date.now()+25892000000),
+                httpOnly:true
+            });
+
+            if(!isMatch)
+            {
+                res.status(400).json({error:"invalid credentials"})
+            }
+            else{
+                res.json({status:200,message:"Login successfully"});
+            }
+            
+        } else {
+            res.status(400).json({error:"invalid credentials"})
+        }
+    } catch (err) {
+        console.log(err);
+        
+    }
+
+})
 
 module.exports=router;
