@@ -40,123 +40,10 @@
 
 /* signup css */
 
-/* app.css */
-
-/* .signup {
-  background-color: #f4f4f4;
-  padding: 50px 0;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.signup-content {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.signup-form {
-  width: 50%;
-  background-color: #fff;
-  padding: 40px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-.form-title {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 8px;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 1px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.form-button {
-  text-align: center;
-}
-
-.form-submit {
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  padding: 12px 20px;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.form-submit:hover {
-  background-color: #45a049;
-}
-
-
-.signup-content {
-  display: flex;
-  align-items: center;
-}
-
-.signup-form {
-  flex: 1; 
-  background-color: #fff;
-  padding: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin-right: 95px; 
-}
-
-.signup-image {
-  width: 50%;
-  text-align: center;
-}
-
-.signup-image img {
-  width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
-
-
-@media (max-width: 768px) {
-  .signup-content {
-    flex-direction: column; 
-  }
-
-  .signup-form {
-    margin-right: 0; 
-    margin-bottom: 20px; 
-  }
-
-  .signup-image {
-    width: 100%; 
-  }
-} */
-
-/* app.css */
 
 .signup {
-  background-color: #f4f4f4;
+  background-color: #599134;
+  padding: 4px 0;
   /* padding: 5px 0; */
   padding-top: -20px;
 }
@@ -164,33 +51,38 @@
 .container {
   max-width: 800px;
   margin: 0 auto;
+  line-height: .9;
 }
 
 .signup-content {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  line-height: .1;
+    
 }
 
 .signup-form {
-  flex: 1; /* Take up remaining space */
+  flex: 1; 
   background-color: #fff;
-  padding: 10px; /* Adjust padding for better spacing */
+  padding: 5px; 
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin-top: 50px;
+  border-radius: 10px;
+  margin-top: 12px;
   margin-right: 98px;
+  margin-left: 50px;
+  margin-bottom: 12px;
 }
 
 .form-title {
   font-size: 24px;
   color: #333;
-  margin-bottom: 20px; /* Adjust margin for better spacing */
+  margin-bottom: 5px; 
   text-align: center;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 2px;
 }
 
 .form-group label {
@@ -206,7 +98,7 @@
   font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  box-sizing: border-box; /* Ensure padding doesn't affect width */
+  box-sizing: border-box; 
 }
 
 .form-button {
@@ -237,6 +129,16 @@
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+}
+
+.signup-image a {
+  color: black;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.signup-image a:hover {
+  color: sandybrown;
 }
 
 /* Add media query for responsiveness */
@@ -260,17 +162,14 @@
 
         /* login css */
 
-/* app.css */
+
 
 .signin {
   background-color: #599134;
-  padding: 135px 0;
+  padding: 155px 0;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-}
+
 
 .signin-content {
   display: flex;
@@ -289,7 +188,7 @@
 .form-title {
   font-size: 24px;
   color: #333;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -346,11 +245,180 @@
   display: block;
   margin-top: 20px;
   text-decoration: none;
-  color: #2b2fb3;
+  color: #1e1e1f;
   font-size: 16px;
 }
 
 .signin-image a:hover {
-  color: #af4c4f;
+  color: sandybrown;
 }
+
+
+       /* homepage css */
+
+
+
+.home-page {
+  background-color: rgba(240, 240, 240, 0.929); 
+  padding: 275px; 
+}
+
+.home-div {
+  text-align: center;
+}
+
+.pt-5 {
+  padding-top: 50px;
+}
+
+.welcome-text {
+  color: rgb(0, 128, 53);
+}
+
+
+
+
+      /* about css */
+
+
+.container.emp-profile {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.emp-profile img {
+  width: 90%;
+  height: 90%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.profile-head {
+  margin-top: 60px;
+}
+
+.profile-head h4 {
+  color: #333;
+}
+
+.profile-head h6 {
+  color: #666;
+}
+
+.profile-rating span {
+  color: #3498db;
+  font-weight: bold;
+}
+
+.nav-tabs .nav-link {
+  color: #333;
+}
+
+.nav-tabs .nav-link.active {
+  color: #3498db;
+  border-bottom: 2px solid #3498db;
+}
+
+.profile-work a {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.profile-work a:hover {
+  text-decoration: none;
+  color: #3498db;
+}
+
+.about-info label {
+  font-weight: bold;
+  color: #333;
+}
+
+.about-info p {
+  color: #666;
+}
+
+.input{
+  margin: 67px;
+}
+
+.form-group form-button{
+  margin: 67px; 
+}
+
+
+
+/* contact page */
+
+.contact_info {
+  background-color: #f4f4f4;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 15px 0;
+}
+
+.contact_info_item {
+  margin-bottom: 20px;
+}
+
+.contact_info_title {
+  font-weight: bold;
+}
+
+.contact_form {
+  padding: 20px 0;
+  background-color: #e6e6e6;
+}
+
+.contact_form_container {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 100px;
+}
+
+.contact_form_title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.contact_form_name {
+  display: flex;
+}
+
+.input_field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact_form_text textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact_form_button button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact_form_button button:hover {
+  background-color: #0056b3;
+}
+
+
 
