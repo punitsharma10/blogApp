@@ -1,5 +1,7 @@
 const express=require('express')
+const cookieParser = require('cookie-parser');
 const app=express();
+app.use(cookieParser());
 const mongoose=require('mongoose');
 const dotenv=require('dotenv');
 dotenv.config({path:'./config.env'});
@@ -21,19 +23,19 @@ mongoose.connect(DB,{
 });
 
 
-const middleware=(req,res,next)=>{
-    console.log("middleware");
-    next();
-}
+// const middleware=(req,res,next)=>{
+//     console.log("middleware");
+//     next();
+// }
 
-app.get('/',(req,res)=>{
-    res.send(`helloWorld`)
-})
+// app.get('/',(req,res)=>{
+//     res.send(`helloWorld`)
+// })
 
-app.get('/about',middleware,(req,res)=>{
-    console.log(`about`);
-    res.send(`helloWorldabout`)
-})
+// app.get('/about',(req,res)=>{
+//     console.log(`about`);
+//     res.send(`helloWorldabout`)
+// })
 
 app.get('/contact',(req,res)=>{
     res.send(`hello`)

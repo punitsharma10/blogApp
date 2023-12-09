@@ -1,15 +1,48 @@
-import React from 'react';
-import ps from "../images/ps.jpg";
+import React, { useEffect,useState} from 'react';
+import ps from "../images/xd.png";
+import {useNavigate } from 'react-router-dom';
+
+
 const About = () => {
   const imgStyle = {
     width: '70%', 
     height: '80%', 
   };
 
+  const navigate=useNavigate();
+  const [userData,setUserData]=useState({});
+
+const callAboutPage= async ()=>{
+  try {
+      const res=await fetch("/about",{
+        method:"GET",
+        headers:{
+          Accept:"application/json",
+          "Content-Type":"application/json"
+        },
+        credentials:"include"
+      });
+
+      const data = await res.json();
+      console.log(data);
+      setUserData(data);
+      if(res.status!==200){
+        const error=new Error(res.error);
+        throw error;
+      }
+  } catch (err) {
+    console.log(err);
+    navigate("/login");
+  }
+}
+
+  useEffect(()=>{
+    callAboutPage();
+  },[]);
   return (
     <>
     <div className='container emp-profile'>
-      <form method=''>
+      <form method="GET">
         <div className='row'>
           <div className='col-md-4'>
             <img src={ps} alt="" style={imgStyle}/>
@@ -17,8 +50,8 @@ const About = () => {
 
           <div className='col-md-6'>
             <div className='profile-head'>
-              <h4>Punit Sharma</h4>
-              <h6>MERN Developer</h6>
+              <h4>{userData.name}</h4>
+              <h6>{userData.work}</h6>
               <p className='profile-rating mt-3 mb-5'>RANKINGS: <span>1/10</span></p>
 
               <ul class="nav nav-tabs" role='tablist'>
@@ -41,7 +74,7 @@ const About = () => {
         <div className='row'>
           <div className='col-md-4'>
             <div className='profile-work'>
-              <h5>WORK LINK</h5>
+              <h5>WORK-LINK</h5>
               <a href="https://punitsharma10.github.io/" target='_blank' rel='noreferrer'>Portfolio</a>
               <br />
               <a href="https://github.com/punitsharma10" target='_blank' rel='noreferrer'>GitHub</a>
@@ -60,7 +93,7 @@ const About = () => {
                     <label>User ID</label>
                   </div>
                   <div className='col-md-6'>
-                    <p>855555555555</p>
+                    <p>848271395</p>
                   </div>
                 </div>
                 <div className='row'>
@@ -68,15 +101,7 @@ const About = () => {
                     <label>Name</label>
                   </div>
                   <div className='col-md-6'>
-                    <p>Punit Sharma</p>
-                  </div>
-                </div>
-                <div className='row'>
-                  <div className='col-md-6'>
-                    <label>Name</label>
-                  </div>
-                  <div className='col-md-6'>
-                    <p>Punit Sharma</p>
+                    <p>{userData.name}</p>
                   </div>
                 </div>
                 <div className='row'>
@@ -84,7 +109,7 @@ const About = () => {
                     <label>Email</label>
                   </div>
                   <div className='col-md-6'>
-                    <p>paras77295@gmail.com</p>
+                    <p>{userData.email}</p>
                   </div>
                 </div>
                 <div className='row'>
@@ -92,7 +117,15 @@ const About = () => {
                     <label>Phone</label>
                   </div>
                   <div className='col-md-6'>
-                    <p>9997222612</p>
+                    <p>{userData.phone}</p>
+                  </div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-6'>
+                    <label>Profession</label>
+                  </div>
+                  <div className='col-md-6'>
+                    <p>Full-Stack Developer</p>
                   </div>
                 </div>
               </div>

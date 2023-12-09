@@ -32,7 +32,7 @@ const Signup = () => {
     const data=await res.json();
 
     if(data.status===422 || !data){
-      window.alert("Invalid username or password")
+      window.alert("invalid credentials")
     }
     else{
       window.alert("registration successful")

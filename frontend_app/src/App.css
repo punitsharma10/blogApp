@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -43,8 +45,7 @@
 
 .signup {
   background-color: #599134;
-  padding: 4px 0;
-  /* padding: 5px 0; */
+  padding: 3px 0;
   padding-top: -20px;
 }
 
@@ -259,9 +260,16 @@
 
 
 .home-page {
+  /* background-image: url('./images/home.jpg');
+  background-size: cover;
+  background-position: center; */
   background-color: rgba(240, 240, 240, 0.929); 
-  padding: 275px; 
+  margin-top: 3.95%;
+  /* border: 50px solid teal; */
+  padding: 215px; 
 }
+
+
 
 .home-div {
   text-align: center;
@@ -282,10 +290,10 @@
 
 
 .container.emp-profile {
-  margin-top: 20px;
+  margin-top: 98px;
   background-color: #fff;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -323,8 +331,9 @@
 }
 
 .profile-work a {
-  display: block;
-  margin-bottom: 10px;
+  display: inline-grid;
+  margin-top: 2px;
+  margin-bottom: 4px;
   color: #333;
 }
 
